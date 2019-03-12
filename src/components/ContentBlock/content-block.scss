@@ -7,21 +7,33 @@
   transition: transform 1000ms ease, opacity 500ms ease;
   transform: none;
   opacity: 1;
-  min-width: 450px;
+  min-width: 600px;
   bottom: 8vh;
   right: 8vh;
-  font-family: 'Anonymous Pro', monospace;
+  font-family: "Anonymous Pro", monospace;
   color: lighten(black, 30%);
 
   &--transition {
-    transform: translateY(-100%);
+    transform: translateY(-70%);
     opacity: 0;
+
+    .content-block__section,
+    .content-block__links {
+      opacity: 0;
+    }
+  }
+
+  &__section,
+  &__links {
+    opacity: 1;
+    transition: opacity 500ms ease;
+    transition-delay: 250ms;
   }
 
   &__section {
     display: block;
     margin-bottom: 20px;
-    line-height: 1.4;
+    line-height: 1.55;
     font-size: 14px;
   }
 

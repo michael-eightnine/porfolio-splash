@@ -1,0 +1,46 @@
+.logo-block {
+  padding: 15px 30px;
+  background-color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 8vh;
+  left: 8vh;
+  transition: transform 1000ms ease, opacity 500ms ease;
+  transform: none;
+  opacity: 1;
+
+  &--transition {
+    transform: translateY(100%);
+    opacity: 0;
+
+    .logo-block__image {
+      opacity: 0;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 200px;
+    height: auto;
+    opacity: 1;
+    transition: opacity 500ms ease;
+    transition-delay: 250ms;
+
+    path {
+      fill: #111;
+      animation: cycleColor 5s ease infinite;
+    }
+  }
+}
+
+@keyframes cycleColor {
+  0% {
+    fill: #002524;
+  }
+  33% {
+    fill: #f00;
+  }
+  66% {
+    fill: #3900ff;
+  }
+}
