@@ -57,7 +57,7 @@
 }
 
 @keyframes cycleColor {
-  0% {
+  0%, 100% {
     fill: $color-overlay;
   }
   33% {
