@@ -25,20 +25,26 @@ const ContentBlock = ({ transitionActive }) => (
     <p className="content-block__section">
       Michael Smith is a front-end web developer &amp; visual artist working and
       living in Chicago. Professionally, he's focused on architecting &amp;
-      building complex, eye-catching, and scalable React + Redux web apps for a wide
-      variety of clients. Recently, cutting edge web technologies such as
+      building complex, eye-catching, and scalable React + Redux web apps for a
+      wide variety of clients. Recently, cutting edge web technologies such as
       Service Workers and AR have become a major pursuit as well.
     </p>
     <p className="content-block__section">
       Outside of professional development he spends his time creating visual
-      art, in both digital and analog mediums, often from an experimental angle.
-      This creativity and willingness to innovate back shines through to his
+      art, in both digital and analog mediums, often with an experimental angle.
+      This creativity and willingness to innovate shines back through to his
       professional work, ensuring all his clients receive the most thoughtful
       solution possible.
     </p>
     <div className="content-block__links">
       <a href="mailto:michael@eightnine.co">Contact</a>
-      <a href="google.com">Résumé</a>
+      <a
+        href={`${process.env.PUBLIC_URL}/MichaelSmith_CV.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Résumé
+      </a>
       <a
         href="http://hta.eightnine.co"
         target="_blank"
