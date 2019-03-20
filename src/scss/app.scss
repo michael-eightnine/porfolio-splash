@@ -1,5 +1,6 @@
 
 @import './reset';
+@import './variables';
 
 * { box-sizing: border-box; }
 
@@ -12,4 +13,13 @@
   background-image: url('../assets/board-2-non-blend.svg');
   background-size: cover;
   background-position: top left;
+}
+
+::selection {
+  background: $color-blue; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: $color-blue; /* Gecko Browsers */
+  color: white;
 }
