@@ -25,7 +25,7 @@ const ContentBlock = ({ transitionActive }) => (
     <p className="content-block__section">
       Michael Smith is a front-end web developer &amp; visual artist working and
       living in Chicago. Professionally, he's focused on architecting &amp;
-      building complex, eye-catching, and scalable React + Redux web apps for a
+      building complex, eye-catching, and scaleable React + Redux web apps for a
       wide variety of clients. Recently, cutting edge web technologies such as
       Service Workers and AR have become a major pursuit as well.
     </p>
