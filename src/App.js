@@ -4,7 +4,7 @@ import "./scss/app.scss";
 
 console.log(
   "%c👋 Hello dev console user! If you're a fan of what you've seen on this site then reach out to me at michael@eightnine.co! I'd love to hear from you!",
-  "color: #3900ff; font-size: 13px"
+  "font-size: 13px"
 );
 
 const App = () => (

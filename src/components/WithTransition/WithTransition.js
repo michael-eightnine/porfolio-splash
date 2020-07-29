@@ -9,12 +9,9 @@ import React, { Component } from "react";
  */
 const WithTransition = WrappedComponent =>
   class extends Component {
-    constructor() {
-      super();
-      this.state = {
-        transitionActive: true
-      };
-    }
+    state = {
+      transitionActive: true
+    };
 
     componentDidMount() {
       setTimeout(() => {
