@@ -1,19 +1,27 @@
-import React from "react";
-import { ContentBlock, Logo } from "./components";
-import "./scss/app.scss";
-
-console.log(
-  "%c👋 Hello dev console user! If you're a fan of what you've seen on this site then reach out to me at michael@eightnine.co! I'd love to hear from you!",
-  "font-size: 13px"
-);
+import { Scene } from '@Three';
+import '@Scss/main.scss';
 
 const App = () => (
-  <React.Fragment>
-    <div className="app">
-      <Logo />
-      <ContentBlock />
+  <div className="app">
+    <h1 className="title">
+      Building good things well.
+    </h1>
+    <h1 aria-hidden="true" className="title-overlap">
+      Building good things well.
+    </h1>
+    <Scene />
+    <div className="links">
+      <h4 className="links__title">
+        Let's talk
+      </h4>
+      <div className="links__list">
+      <a href="#">resume</a>
+      <a href="#">contact</a>
+      <a href="#">hometown advantage</a>
+      <a href="#">github</a>
+      </div>
     </div>
-  </React.Fragment>
+  </div>
 );
 
 export default App;

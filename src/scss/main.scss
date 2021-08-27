@@ -1,0 +1,133 @@
+@import './reset';
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+}
+
+.app {
+  background-color: whitesmoke;
+}
+
+@keyframes logo-fade {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(90deg);
+  }
+}
+
+.logo-wrap {
+  width: 350px;
+  animation: logo-fade 5s ease-in-out infinite;
+
+  svg {
+    display: block;
+    width: 100%;
+
+    path {
+      stroke: blue;
+      stroke-width: 1px;
+      fill: transparent;
+    }
+  }
+}
+
+.title {
+  color: blue;
+  letter-spacing: 0.0465em;
+  font-size: 12vw;
+  font-family: Anonymous Pro, monospace;
+  position: absolute;
+  top: 0;
+  left: 0.5ch;
+  font-weight: bold;
+}
+
+.title-overlap {
+  color: transparent;
+  -webkit-text-stroke: 2px blue;
+  text-stroke: 2px blue;
+  letter-spacing: 0.05em;
+  font-size: 12vw;
+  font-family: Anonymous Pro, monospace;
+  position: absolute;
+  top: 0;
+  left: 0.5ch;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.about {
+  width: 350px;
+  padding: 15px;
+  background-color: white;
+  border: 3px solid blue;
+  border-top: none;
+  border-left: none;
+
+  h2 {
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 14px;
+    font-family: Anonymous Pro, monospace;
+  }
+
+  ul {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      &:first-of-type {
+        align-self: flex-start;
+      }
+      &:last-of-type {
+        align-self: flex-end;
+      }
+
+      & + li {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.links {
+  padding: 16px;
+  position: absolute;
+  bottom: 5vh;
+  left: 5vh;
+
+  &__title {
+    margin-bottom: 10px;
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 14px;
+    font-family: Anonymous Pro, monospace;
+  }
+
+  &__list {
+    background-color: blue;
+    display: flex;
+    gap: 24px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 16px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
