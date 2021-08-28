@@ -7,6 +7,11 @@ import { THEMES } from 'Constants';
 import Sphere from '../Sphere';
 import { CameraParallax, Lighting } from '../helpers';
 
+/**
+ * Main Three export, renders the sphere scene and handles the logic behind the active scene theme
+ *
+ * @returns {JSX}
+ */
 const Scene = () => {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const currentTheme = useMemo(() => THEMES[currentThemeIndex], [currentThemeIndex]);

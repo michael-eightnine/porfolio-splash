@@ -1,12 +1,12 @@
 @import '~Scss/variables';
 
-.logo {
+.wordmark {
   $self: &;
 
   &__wrapper {
     &--sphere {
       width: 350px;
-      animation: logo-fade 5s ease-in-out infinite;
+      animation: wordmarkFade 5s ease-in-out infinite;
     }
 
     &--about {

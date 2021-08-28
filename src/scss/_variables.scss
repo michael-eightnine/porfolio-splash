@@ -26,7 +26,7 @@ $breakpoint-xl: '(min-width: 1920px)';
   transition: color $themeTransition;
 }
 
-@keyframes logo-fade {
+@keyframes wordmarkFade {
   0%,
   100% {
     opacity: 0;

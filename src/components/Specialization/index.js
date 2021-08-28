@@ -1,5 +1,10 @@
 import './style.scss';
 
+/**
+ * Specialization content component, intended for rendering floating within the threejs scene
+ *
+ * @returns {JSX}
+ */
 const Specialization = () => (
   <div className="specialization">
     <h2 className="specialization__title">specializing in</h2>

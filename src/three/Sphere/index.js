@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useFrame } from '@react-three/fiber';
 import { easeElasticOut } from 'd3-ease';
 import { Html, MeshWobbleMaterial, Sphere as SphereBase } from '@react-three/drei';
@@ -10,6 +11,14 @@ const AnimatedWobbleMaterial = animated(MeshWobbleMaterial);
 
 const DURATION = 4000;
 
+/**
+ * react-three-fiber based component, renders a 3D sphere that contains the site wordmark
+ * Every `DURATION` this component cycles to a new theme variation
+ *
+ * @property {object} currentTheme - currently active scene theme
+ * @property {function} onThemeChange - function to update the current themes
+ * @returns {JSX}
+ */
 const Sphere = ({ currentTheme, onThemeChange }) => {
   const meshRef = useRef();
   const themeIndexRef = useRef(0);
@@ -42,17 +51,22 @@ const Sphere = ({ currentTheme, onThemeChange }) => {
   return (
     <>
       <mesh ref={meshRef} position={[0, 0, -10]}>
-        <animated.mesh scale={scale}>
+        <animated.mesh {...{ scale }}>
           <Html distanceFactor={5} transform zIndexRange={[10, 15]}>
             <Wordmark color={currentTheme.logoColor} isSphereWordmark />
           </Html>
           <SphereBase args={[5, 100, 100]}>
-            <AnimatedWobbleMaterial attach="material" factor={factor} speed={0.25} color={color} />
+            <AnimatedWobbleMaterial attach="material" {...{ factor, color }} speed={0.25} />
           </SphereBase>
         </animated.mesh>
       </mesh>
     </>
   );
+};
+
+Sphere.propTypes = {
+  currentTheme: PropTypes.object.isRequired,
+  onThemeChange: PropTypes.func.isRequired
 };
 
 export default Sphere;

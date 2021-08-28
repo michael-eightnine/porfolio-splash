@@ -6,9 +6,8 @@ import { useThree, useFrame } from "@react-three/fiber";
  * Utility component that adds a parallax effect, where canvas content slowly floats away from the current mouse position,
  * to a canvas scene. This functionality is paused when a connection overlay is open unless the `allowMouseMove` prop is true
  *
- * @param {object} props - react props
  * @property {string} props.canvasSelector - selector value for querySelector-ing the canvas container
- * @param {number} props.mouseMoveFactor - factor to use for calculating mouseMove amount
+ * @property {number} props.mouseMoveFactor - factor to use for calculating mouseMove amount
  *                                         Higher = more movement, defaults to 0.01
  *
  * @returns {null}

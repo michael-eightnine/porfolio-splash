@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 
 /**
  * Hook that watches for a media query to be true or false, works on resize and page load
- * Useful for dynamically rendering content based on screen size when `display: none` won't do
  *
- * @param query - media query from our theme
+ * @param {string} query - media query to use
  * @returns {boolean} does the current query match?
  */
 const useMediaQuery = (query) => {

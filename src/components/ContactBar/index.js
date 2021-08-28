@@ -1,10 +1,16 @@
 import { useRef } from 'react';
 import { useAccordion } from 'Hooks';
-import ContactButton from './ContactButton';
-import './style.scss';
 import classnames from 'classnames';
+import ContactButton from './ContactButton';
 import Wordmark from '../Wordmark';
+import './style.scss';
 
+/**
+ * Contact bar content component, sits at the bottom edge of the viewport
+ * Has accordion functionality triggered by the "Contact" button, which reveals content and triggers a full page mask
+ *
+ * @returns {JSX}
+ */
 const ContactBar = () => {
   const bioContentRef = useRef();
   const bioContainerRef = useRef();
