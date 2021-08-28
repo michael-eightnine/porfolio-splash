@@ -1,0 +1,31 @@
+@import './reset';
+@import './variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app {
+  background-color: whitesmoke;
+}
+
+.scene-container div {
+  pointer-events: none;
+}
+
+.scene-container {
+  opacity: 0;
+  animation: fadeIn 1.25s ease forwards;
+  animation-delay: 3.75s;
+}

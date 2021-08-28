@@ -1,19 +1,23 @@
-import React from "react";
-import { ContentBlock, Logo } from "./components";
-import "./scss/app.scss";
+import { useEffect } from 'react';
+import { Scene } from 'Three';
+import { ContactBar, Title } from 'Components';
+import 'Scss/main.scss';
 
-console.log(
-  "%c👋 Hello dev console user! If you're a fan of what you've seen on this site then reach out to me at michael@eightnine.co! I'd love to hear from you!",
-  "font-size: 13px"
-);
+const App = () => {
+  useEffect(() => {
+    console.log(
+      "%c👋 Hello dev console user! If you're a fan of what you've seen on this site then reach out to me at michael@eightnine.co and let's build something together!",
+      'font-size: 13px'
+    );
+  }, []);
 
-const App = () => (
-  <React.Fragment>
+  return (
     <div className="app">
-      <Logo />
-      <ContentBlock />
+      <Title copy="Building good things well." />
+      <Scene />
+      <ContactBar />
     </div>
-  </React.Fragment>
-);
+  );
+};
 
 export default App;

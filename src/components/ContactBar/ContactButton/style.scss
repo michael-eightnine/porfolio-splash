@@ -1,0 +1,80 @@
+@import '~Scss/variables';
+
+.contact-button {
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+  font-family: $fontSerif;
+  text-transform: capitalize;
+  font-size: 18px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: $colorLight;
+  transition: height 0.35s ease, opacity 0.35s ease;
+  height: 18px;
+
+  &::after {
+    content: '';
+    height: calc(100% + 4px);
+    width: calc(100% + 4px);
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 2px solid currentColor;
+    border-top: none;
+    border-left: none;
+    transition: opacity 0.25s ease;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus,
+  &--active {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &--hidden {
+    pointer-events: none;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  @media #{$breakpoint-sm} {
+    &--hidden {
+      opacity: 1;
+      height: 18px;
+      pointer-events: auto;
+    }
+  }
+
+  &__close-icon {
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    &--visible {
+      opacity: 1;
+    }
+
+    @media #{$breakpoint-sm} {
+      display: none;
+    }
+  }
+}

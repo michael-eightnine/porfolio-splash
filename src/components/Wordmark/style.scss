@@ -1,0 +1,43 @@
+@import '~Scss/variables';
+
+.wordmark {
+  $self: &;
+
+  &__wrapper {
+    &--sphere {
+      width: 350px;
+      animation: wordmarkFade 5s ease-in-out infinite;
+    }
+
+    &--about {
+      display: none;
+      width: 33.33vw;
+      min-width: 450px;
+      position: absolute;
+      top: $desktopMargin;
+      right: $desktopMargin;
+
+      @media #{$breakpoint-sm} {
+        display: block;
+      }
+
+      #{$self}__svg path {
+        opacity: 0;
+        stroke: white;
+        stroke-width: 0.025rem;
+        animation: fadeIn 1s ease forwards;
+        animation-delay: 0.35s;
+      }
+    }
+  }
+  &__svg {
+    display: block;
+    width: 100%;
+
+    path {
+      stroke-width: 1px;
+      fill: transparent;
+      transition: stroke $themeTransition;
+    }
+  }
+}

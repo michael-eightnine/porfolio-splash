@@ -1,13 +1,49 @@
-$desktop-padding: 8vh;
+$colorBlack: lighten(
+  $color: #000000,
+  $amount: 25%
+);
+$colorDark: blue;
+$colorLight: white;
 
-$mobile-padding: 30px;
+$fontMono: 'Anonymous Pro', monospace;
+$fontSerif: 'Alegreya', serif;
 
-$mobile-break: 750px;
+$desktopMargin: 32px;
+$mobileMargin: 16px;
 
-$small-mobile-break: 565px;
+$themeTransition: 0.65s ease;
 
-$color-blue: #3900ff;
+$breakpoint-sm: '(min-width: 600px)';
+$breakpoint-md: '(min-width: 960px)';
+$breakpoint-lg: '(min-width: 1280px)';
+$breakpoint-xl: '(min-width: 1920px)';
 
-$color-red: #f00;
+@mixin smallHeader {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+  font-family: $fontMono;
+  transition: color $themeTransition;
+}
 
-$color-overlay: #002524;
+@keyframes wordmarkFade {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(90deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

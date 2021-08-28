@@ -1,0 +1,43 @@
+@import '~Scss/variables';
+
+.specialization {
+  width: 350px;
+  padding: 15px;
+  background-color: white;
+  border: 3px solid $colorDark;
+  border-top: none;
+  border-left: none;
+
+  opacity: 0;
+  animation: fadeIn 1.25s ease forwards;
+  animation-delay: 4.5s;
+
+  &__title {
+    @include smallHeader;
+    color: $colorDark;
+  }
+
+  &__list {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    font-family: $fontSerif;
+    color: $colorBlack;
+
+    li {
+      &:first-of-type {
+        align-self: flex-start;
+      }
+
+      &:last-of-type {
+        align-self: flex-end;
+      }
+
+      & + li {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}

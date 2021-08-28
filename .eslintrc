@@ -1,0 +1,20 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "17.0.1"
+    }
+  },
+  "extends": ["plugin:react/recommended", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": 1,
+    "react/react-in-jsx-scope": 0, // We turn this off as 17+ doesn't require us to import React to use JSX
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
+}

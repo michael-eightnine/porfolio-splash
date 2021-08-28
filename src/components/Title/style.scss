@@ -1,0 +1,66 @@
+@import '~Scss/variables';
+
+.title {
+  $self: &;
+  letter-spacing: 0.045em;
+  line-height: 1.25;
+  font-size: 20vw;
+  font-family: Anonymous Pro, monospace;
+  position: absolute;
+  top: 0;
+  left: $mobileMargin;
+  font-weight: bold;
+  color: $colorDark;
+  -webkit-text-stroke: 2px $colorDark;
+  font-weight: 700;
+
+  @media #{$breakpoint-md} {
+    font-size: 15.5vw;
+    left: $desktopMargin;
+    letter-spacing: 0.0465em;
+    line-height: 0.95;
+  }
+
+  @media #{$breakpoint-lg} {
+    font-size: 14vw;
+    line-height: normal;
+  }
+
+  span {
+    display: inline-block;
+    position: absolute;
+    height: 20vw;
+    width: 2px;
+    background-color: $colorDark;
+
+    @media #{$breakpoint-md} {
+      height: 16vw;
+    }
+
+    @media #{$breakpoint-lg} {
+      height: 12vw;
+    }
+  }
+
+  &--typing-complete {
+    span {
+      display: none;
+    }
+  }
+
+  &--typing-near-complete {
+    & + #{$self}--overlap {
+      letter-spacing: 0.045em;
+
+      @media #{$breakpoint-md} {
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+
+  &--overlap {
+    color: transparent;
+    z-index: 10;
+    transition: letter-spacing 1s ease;
+  }
+}
