@@ -58,15 +58,6 @@ const THEMES = [
     factor: 2.25,
     ...shared
   }
-  // {
-  //   id:'salmon',
-  //   sphereColor: '#f23e29',
-  //   lightingColor: '#f74e3b',
-  //   logoColor: '#ffc1ba',
-  //   scale: 1.4,
-  //   factor: 2.25,
-  //   ...shared
-  // }
 ];
 
 export default THEMES;

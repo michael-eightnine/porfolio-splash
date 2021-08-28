@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Scene } from 'Three';
 import { ContactBar, Title } from 'Components';
-import { THEMES } from 'Constants';
 import 'Scss/main.scss';
 
-const themeNames = THEMES.map(({ id }) => id);
-
 const App = () => {
-  const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
-  const currentTheme = THEMES[currentThemeIndex];
+  useEffect(() => {
+    console.log(
+      "%c👋 Hello dev console user! If you're a fan of what you've seen on this site then reach out to me at michael@eightnine.co and let's build something together!",
+      'font-size: 13px'
+    );
+  }, []);
 
   return (
-    <div className={`app app--theme-${themeNames[currentThemeIndex]}`}>
-      <Title {...{ currentTheme }} copy="Building good things well." />
-      <Scene {...{ currentTheme }} onThemeChange={setCurrentThemeIndex} />
-      <ContactBar {...{ currentTheme }} />
+    <div className="app">
+      <Title copy="Building good things well." />
+      <Scene />
+      <ContactBar />
     </div>
   );
 };

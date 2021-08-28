@@ -2,56 +2,54 @@ import { useRef } from 'react';
 import { useAccordion } from 'Hooks';
 import ContactButton from './ContactButton';
 import './style.scss';
-import classNames from 'classnames';
+import classnames from 'classnames';
+import Wordmark from '../Wordmark';
 
-const ContactBar = ({ currentTheme }) => {
+const ContactBar = () => {
   const bioContentRef = useRef();
   const bioContainerRef = useRef();
   const { expanded, setExpanded } = useAccordion(bioContentRef.current, bioContainerRef.current);
 
-  const themeStyle = {
-    container: {
-      backgroundColor: currentTheme.primaryColor
-    },
-    title: {
-      color: expanded ? currentTheme.secondaryColor : currentTheme.primaryColor
-    },
-    text: {
-      color: currentTheme.secondaryColor
-    },
-    bio: {
-      backgroundColor: currentTheme.primaryColor,
-      color: currentTheme.secondaryColor
-    }
-  };
-
   return (
     <div
-      className={classNames('contact-bar', {
+      className={classnames('contact-bar', {
         'contact-bar--expanded': expanded
       })}
     >
-      <h4 style={themeStyle.title} className="contact-bar__title">
+      <div
+        aria-hidden={!expanded}
+        className="contact-bar__mask"
+        onClick={() => setExpanded(false)}
+      >
+        {expanded && <Wordmark />}
+      </div>
+      <h4 className="contact-bar__title">
         Let's talk!
       </h4>
-      <div className="contact-bar__content-wrapper" style={themeStyle.container}>
-        <div className="contact-bar__list">
-          <ContactButton style={themeStyle.text} href="./MichaelSmith_CV.pdf">
+      <div className="contact-bar__content-wrapper" >
+        <div
+          className={classnames('contact-bar__list', {
+            'contact-bar__list--expanded': expanded
+          })}
+        >
+          <ContactButton isHidden={expanded} href="./MichaelSmith_CV.pdf">
             Resumé
           </ContactButton>
           <ContactButton
             isActive={expanded}
             onClick={() => setExpanded(!expanded)}
-            style={themeStyle.text}
           >
             Contact
           </ContactButton>
-          <ContactButton style={themeStyle.text} href="https://hta.eightnine.co/">
+          <ContactButton
+            isHidden={expanded}
+            href="https://hta.eightnine.co/"
+          >
             Hometown Advantage
           </ContactButton>
         </div>
         <div className="contact-bar__bio-container" ref={bioContainerRef}>
-          <div className="contact-bar__bio-content" ref={bioContentRef} style={themeStyle.bio}>
+          <div className="contact-bar__bio-content" ref={bioContentRef}>
             <p className="contact-bar__bio-paragraph">
               While titled as a front-end architect, Michael Smith strives to bridge the gap between
               design and development by pairing years of front-end development experience with over
@@ -71,8 +69,20 @@ const ContactBar = ({ currentTheme }) => {
             <p className="contact-bar__bio-paragraph">Reach out, let's build something together.</p>
             <p className="contact-bar__bio-links">
               <a href="mailto:michael@eightnine.co">michael[at]eightnine.co</a>
-              <a href="https://www.linkedin.com/in/michael-smith-103716139/">LinkedIn</a>
-              <a href="https://github.com/michael-eightnine">GitHub</a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/michael-smith-103716139/"
+              >
+                LinkedIn
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/michael-eightnine"
+              >
+                GitHub
+              </a>
             </p>
           </div>
         </div>

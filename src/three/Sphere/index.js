@@ -44,10 +44,9 @@ const Sphere = ({ currentTheme, onThemeChange }) => {
       <mesh ref={meshRef} position={[0, 0, -10]}>
         <animated.mesh scale={scale}>
           <Html distanceFactor={5} transform zIndexRange={[10, 15]}>
-            <Wordmark {...{ currentTheme }} />
+            <Wordmark color={currentTheme.logoColor} isSphereWordmark />
           </Html>
           <SphereBase args={[5, 100, 100]}>
-            a
             <AnimatedWobbleMaterial attach="material" factor={factor} speed={0.25} color={color} />
           </SphereBase>
         </animated.mesh>

@@ -1,9 +1,22 @@
+$colorBlack: lighten(
+  $color: #000000,
+  $amount: 25%
+);
+$colorDark: blue;
+$colorLight: white;
+
 $fontMono: 'Anonymous Pro', monospace;
 $fontSerif: 'Alegreya', serif;
 
 $desktopMargin: 32px;
+$mobileMargin: 16px;
 
-$themeTransition: .65s ease;
+$themeTransition: 0.65s ease;
+
+$breakpoint-sm: '(min-width: 600px)';
+$breakpoint-md: '(min-width: 960px)';
+$breakpoint-lg: '(min-width: 1280px)';
+$breakpoint-xl: '(min-width: 1920px)';
 
 @mixin smallHeader {
   text-transform: uppercase;
@@ -12,7 +25,6 @@ $themeTransition: .65s ease;
   font-family: $fontMono;
   transition: color $themeTransition;
 }
-
 
 @keyframes logo-fade {
   0%,
@@ -26,7 +38,6 @@ $themeTransition: .65s ease;
     transform: scale(1.5) rotate(90deg);
   }
 }
-
 
 @keyframes fadeIn {
   from {

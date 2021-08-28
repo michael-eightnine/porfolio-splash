@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
-const Title = ({ copy, currentTheme }) => {
+const Title = ({ copy }) => {
   const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
@@ -18,30 +18,18 @@ const Title = ({ copy, currentTheme }) => {
     );
   }, [displayText, copy]);
 
-  const themeStyle = {
-    title: {
-      color: currentTheme.primaryColor,
-      WebkitTextStrokeColor: currentTheme.primaryColor
-    },
-    typingLine: { backgroundColor: currentTheme.primaryColor },
-    overlap: {
-      WebkitTextStrokeColor: currentTheme.primaryColor
-    }
-  };
-
   return (
     <>
       <h1
-        style={themeStyle.title}
         className={classnames('title', {
           'title--typing-complete': displayText.length === copy.length,
           'title--typing-near-complete': displayText.length >= copy.length - 3
         })}
       >
         {displayText}
-        <span style={themeStyle.typingLine} />
+        <span />
       </h1>
-      <h1 style={themeStyle.overlap} aria-hidden="true" className="title title--overlap">
+      <h1 aria-hidden="true" className="title title--overlap">
         {displayText}
       </h1>
     </>

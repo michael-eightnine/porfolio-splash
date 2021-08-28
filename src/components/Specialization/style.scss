@@ -4,10 +4,9 @@
   width: 350px;
   padding: 15px;
   background-color: white;
-  border: 3px solid;
+  border: 3px solid $colorDark;
   border-top: none;
   border-left: none;
-  transition: border-color $themeTransition;
 
   opacity: 0;
   animation: fadeIn 1.25s ease forwards;
@@ -15,6 +14,7 @@
 
   &__title {
     @include smallHeader;
+    color: $colorDark;
   }
 
   &__list {
@@ -24,7 +24,7 @@
     align-items: center;
     font-size: 18px;
     font-family: $fontSerif;
-    color: lighten($color: #000000, $amount: 25%);
+    color: $colorBlack;
 
     li {
       &:first-of-type {

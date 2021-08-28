@@ -10,40 +10,70 @@
   animation: fadeIn 1.25s ease forwards;
   animation-delay: 5s;
 
-  &::before {
-    content: '';
+  &__mask {
     display: block;
     height: 0;
-    width: 0;
+    width: 100vw;
     position: fixed;
-    background-color: blue;
     z-index: -1;
     bottom: 0;
     left: 0;
-    transition: height 0.35s ease, width .35s;
+    transition: height 0.35s ease, width 0.35s;
+    overflow: hidden;
+    background-color: $colorDark;
+
+    @media #{$breakpoint-md} {
+      width: 0;
+    }
   }
 
   &__title {
     @include smallHeader;
     margin-bottom: 10px;
-    margin-left: $desktopMargin;
+    margin-left: $mobileMargin;
+    color: $colorDark;
+
+    #{$self}--expanded & {
+      color: $colorLight;
+    }
+
+    @media #{$breakpoint-md} {
+      margin-left: $desktopMargin;
+    }
   }
 
   &__content-wrapper {
-    width: calc(100vw / 3);
-    min-width: 620px;
-    padding: 20px $desktopMargin $desktopMargin $desktopMargin;
+    width: 100vw;
+    padding: 20px $mobileMargin $mobileMargin $mobileMargin;
     display: flex;
     flex-direction: column;
-    transition: background-color $themeTransition;
+    background-color: $colorDark;
+
+    @media #{$breakpoint-md} {
+      width: calc(100vw / 3);
+      min-width: 620px;
+      padding: 20px $desktopMargin $desktopMargin $desktopMargin;
+    }
   }
 
   &__list {
     width: 100%;
     display: flex;
+    gap: 32px;
+    flex-direction: column;
     justify-content: space-between;
     font-size: 18px;
     letter-spacing: 1px;
+    transition: gap 0.25s ease;
+
+    &--expanded {
+      gap: 0;
+    }
+
+    @media #{$breakpoint-sm} {
+      flex-direction: row;
+      gap: 0;
+    }
   }
 
   &__bio-container {
@@ -53,7 +83,11 @@
   }
 
   &__bio-content {
-    padding: $desktopMargin 0 0 0;
+    padding: $mobileMargin 0 0 0;
+
+    @media #{$breakpoint-md} {
+      padding: $desktopMargin 0 0 0;
+    }
   }
 
   &__bio-paragraph,
@@ -61,15 +95,20 @@
     display: block;
     margin-bottom: 20px;
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 14px;
     font-family: $fontMono;
-    color: inherit;
+    color: $colorLight;
+
+    @media #{$breakpoint-sm} {
+      font-size: 16px;
+    }
   }
 
   &__bio-links {
     width: 100%;
     display: flex;
-    gap: 3rem;
+    gap: 1rem 3rem;
+    flex-wrap: wrap;
 
     a {
       text-decoration: underline;
@@ -78,7 +117,7 @@
   }
 
   &--expanded {
-    &::before {
+    #{$self}__mask {
       height: 100vh;
       width: 100%;
     }
@@ -100,7 +139,7 @@
   display: block;
   position: relative;
   cursor: pointer;
-  transition: color $themeTransition;
+  color: $colorLight;
 
   &::after {
     content: '';
@@ -113,7 +152,7 @@
     border: 2px solid currentColor;
     border-top: none;
     border-left: none;
-    transition: opacity 0.25s ease, border-color $themeTransition;
+    transition: opacity 0.25s ease;
     opacity: 0;
   }
 
@@ -122,6 +161,18 @@
   &--active {
     &::after {
       opacity: 1;
+    }
+  }
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media #{$breakpoint-sm} {
+    &--hidden {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }
