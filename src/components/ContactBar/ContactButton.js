@@ -13,7 +13,14 @@ import classnames from 'classnames';
  *
  * @returns {JSX}
  */
-const ContactButton = ({ children, isActive, isHidden, href, onClick, ...rest }) => {
+const ContactButton = ({
+  children,
+  isActive,
+  isHidden,
+  href,
+  onClick,
+  ...rest
+}) => {
   const classes = classnames('contact-button', {
     'contact-button--active': isActive,
     'contact-button--hidden': isHidden
