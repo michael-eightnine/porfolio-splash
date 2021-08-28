@@ -23,11 +23,14 @@ const Scene = () => {
   const showSpecialization = useMediaQuery('(min-width: 600px)');
 
   const desktopPosition = [3, -1, -1];
-  const tabletPosition = [0, -2.5, -1];
+  const tabletPosition = [1.75, -2.5, -1];
 
   return (
     <Canvas className="scene-container">
-      <CameraParallax canvasSelector=".app" mouseMoveFactor={0.0025} />
+      <CameraParallax
+        canvasSelector=".app"
+        mouseMoveFactor={isDesktop ? 0.0025 : 0.001}
+      />
       <Lighting {...{ currentTheme }} />
       <Sphere {...{ currentTheme }} onThemeChange={setCurrentThemeIndex} />
       {showSpecialization && (

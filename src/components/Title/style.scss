@@ -15,14 +15,15 @@
   font-weight: 700;
 
   @media #{$breakpoint-md} {
-    font-size: 16vw;
+    font-size: 15.5vw;
     left: $desktopMargin;
     letter-spacing: 0.0465em;
-    line-height: normal;
+    line-height: 0.95;
   }
 
   @media #{$breakpoint-lg} {
-    font-size: 12vw;
+    font-size: 14vw;
+    line-height: normal;
   }
 
   span {
