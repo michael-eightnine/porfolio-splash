@@ -3,6 +3,7 @@ import { useAccordion } from 'Hooks';
 import classnames from 'classnames';
 import ContactButton from './ContactButton';
 import Wordmark from '../Wordmark';
+import AboutAccordion from './AboutAccordion';
 import './style.scss';
 
 /**
@@ -52,54 +53,12 @@ const ContactBar = () => {
             Hometown Advantage
           </ContactButton>
         </div>
-        <div className="contact-bar__bio-container" ref={bioContainerRef}>
-          <div className="contact-bar__bio-content" ref={bioContentRef}>
-            <div className="contact-bar__scroller">
-              <p className="contact-bar__bio-paragraph">
-                {`While titled as a front-end architect, Michael Smith strives to
-              bridge the gap between design and development by pairing years of
-              front-end development experience with over a decade of visual
-              design expertise. He's primarily focused on React development,
-              having concepted and built applications, experiences, and sites
-              for global brands like Enterprise Rent-A-Car and Nationwide as
-              well as smaller, niche brands like Monit and Liberty Fund.`}
-              </p>
-              <p className="contact-bar__bio-paragraph">
-                {`That's the "professional third person" elevator pitch. On a more
-              casual note, I believe in exactly what the header of this site
-              says. I am fully invested in delivering the best work possible,
-              and helping to elevate teams, brands, and agencies to that same
-              standard. Experimental design and experiences really speak to me,
-              but any project where I can dive into detailed design and
-              development gives me that "good days work" feeling.`}
-              </p>
-            </div>
-            <div className="contact-bar__non-scroller">
-              <p className="contact-bar__bio-paragraph">
-                {`Reach out, let's build something together.`}
-              </p>
-              <p className="contact-bar__bio-links">
-                <a href="mailto:michael@eightnine.co">
-                  michael[at]eightnine.co
-                </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/in/michael-smith-103716139/"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/michael-eightnine"
-                >
-                  GitHub
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+        <AboutAccordion
+          ref={{
+            contentRef: bioContentRef,
+            containerRef: bioContainerRef
+          }}
+        />
       </div>
     </div>
   );

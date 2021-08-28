@@ -32,10 +32,7 @@
     margin-bottom: 10px;
     margin-left: $mobileMargin;
     color: $colorDark;
-
-    #{$self}--expanded & {
-      color: $colorLight;
-    }
+    transition: color $themeTransition, opacity 0.35s ease;
 
     @media #{$breakpoint-md} {
       margin-left: $desktopMargin;
@@ -44,7 +41,7 @@
 
   &__content-wrapper {
     width: 100vw;
-    max-height: 100vh;
+    max-height: calc(100vh - 90px);
     padding: 20px $mobileMargin $mobileMargin $mobileMargin;
     display: flex;
     flex-direction: column;
@@ -53,6 +50,7 @@
     @media #{$breakpoint-md} {
       width: calc(100vw / 3);
       min-width: 620px;
+      max-height: 100vh;
       padding: 20px $desktopMargin $desktopMargin $desktopMargin;
     }
   }
@@ -67,75 +65,9 @@
     letter-spacing: 1px;
     transition: gap 0.25s ease;
 
-    &--expanded {
-      gap: 0;
-    }
-
     @media #{$breakpoint-sm} {
       flex-direction: row;
       gap: 0;
-    }
-  }
-
-  &__bio-container {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.35s ease;
-  }
-
-  &__bio-content {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0 0 0;
-
-    @media #{$breakpoint-sm} {
-      padding: $desktopMargin 0 0 0;
-    }
-  }
-
-  &__scroller {
-    flex: 1 1 100%;
-    overflow: auto;
-    border-bottom: 2px solid $colorLight;
-    margin-bottom: 20px;
-  }
-
-  &__non-scroller {
-    flex: none;
-  }
-
-  &__bio-paragraph,
-  &__bio-links {
-    display: block;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    font-size: 14px;
-    font-family: $fontMono;
-    color: $colorLight;
-
-    @media #{$breakpoint-sm} {
-      font-size: 16px;
-    }
-  }
-
-  &__bio-links {
-    width: 100%;
-    display: flex;
-    gap: 20px 3rem;
-    flex-wrap: wrap;
-
-    a {
-      text-decoration: underline;
-      color: currentColor;
-      transition: transform 0.25s ease, padding 0.25s ease;
-
-      &:focus,
-      &:hover {
-        transform: translateY(-5px);
-        text-decoration: white wavy overline;
-        outline: none;
-        padding-bottom: 5px;
-      }
     }
   }
 
@@ -145,83 +77,13 @@
       width: 100%;
     }
 
-    #{$self}__bio-content {
-      color: black;
-    }
-  }
-}
+    #{$self}__title {
+      opacity: 0;
+      color: $colorLight;
 
-.contact-button {
-  border: none;
-  outline: none;
-  background: none;
-  text-decoration: none;
-  font-family: $fontSerif;
-  text-transform: capitalize;
-  font-size: 18px;
-  display: block;
-  position: relative;
-  cursor: pointer;
-  color: $colorLight;
-  transition: opacity 0.35s ease;
-
-  &::after {
-    content: '';
-    height: calc(100% + 4px);
-    width: calc(100% + 4px);
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border: 2px solid currentColor;
-    border-top: none;
-    border-left: none;
-    transition: opacity 0.25s ease;
-    opacity: 0;
-  }
-
-  &:hover,
-  &:focus,
-  &--active {
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &--hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  @media #{$breakpoint-sm} {
-    &--hidden {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
-
-  &__close-icon {
-    display: block;
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    &--visible {
-      opacity: 1;
-    }
-
-    @media #{$breakpoint-sm} {
-      display: none;
+      @media #{$breakpoint-sm} {
+        opacity: 1;
+      }
     }
   }
 }

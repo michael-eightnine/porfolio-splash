@@ -1,0 +1,67 @@
+@import '~Scss/variables';
+
+.about {
+  &__container {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$breakpoint-sm} {
+      padding: $desktopMargin 0 0 0;
+    }
+  }
+
+  &__scroller {
+    flex: 1 1 100%;
+    overflow: auto;
+    border-bottom: 2px solid $colorLight;
+    margin-bottom: 20px;
+  }
+
+  &__non-scroller {
+    flex: none;
+  }
+
+  &__paragraph,
+  &__links {
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: $fontMono;
+    color: $colorLight;
+
+    @media #{$breakpoint-sm} {
+      font-size: 16px;
+    }
+  }
+
+  &__links {
+    width: 100%;
+    display: flex;
+    gap: 20px 3rem;
+    flex-wrap: wrap;
+
+    a {
+      text-decoration: underline;
+      color: currentColor;
+      transition: transform 0.25s ease, padding 0.25s ease;
+
+      &:focus,
+      &:hover {
+        transform: translateY(-5px);
+        text-decoration: white wavy overline;
+        outline: none;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

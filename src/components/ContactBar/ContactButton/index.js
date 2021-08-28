@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import closeIconSrc from 'Assets/close-icon.svg';
+import './style.scss';
 
 /**
  * Re-usable button and link component for use in the ContactBar link list
