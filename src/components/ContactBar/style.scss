@@ -1,0 +1,127 @@
+@import '~Scss/variables';
+
+.contact-bar {
+  $self: &;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  opacity: 0;
+  animation: fadeIn 1.25s ease forwards;
+  animation-delay: 5s;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    position: fixed;
+    background-color: blue;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    transition: height 0.35s ease, width .35s;
+  }
+
+  &__title {
+    @include smallHeader;
+    margin-bottom: 10px;
+    margin-left: $desktopMargin;
+  }
+
+  &__content-wrapper {
+    width: calc(100vw / 3);
+    min-width: 620px;
+    padding: 20px $desktopMargin $desktopMargin $desktopMargin;
+    display: flex;
+    flex-direction: column;
+    transition: background-color $themeTransition;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  &__bio-container {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+  }
+
+  &__bio-content {
+    padding: $desktopMargin 0 0 0;
+  }
+
+  &__bio-paragraph,
+  &__bio-links {
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: $fontMono;
+    color: inherit;
+  }
+
+  &__bio-links {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+
+    a {
+      text-decoration: underline;
+      color: currentColor;
+    }
+  }
+
+  &--expanded {
+    &::before {
+      height: 100vh;
+      width: 100%;
+    }
+
+    #{$self}__bio-content {
+      color: black;
+    }
+  }
+}
+
+.contact-button {
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+  font-family: $fontSerif;
+  text-transform: capitalize;
+  font-size: 18px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: color $themeTransition;
+
+  &::after {
+    content: '';
+    height: calc(100% + 4px);
+    width: calc(100% + 4px);
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 2px solid currentColor;
+    border-top: none;
+    border-left: none;
+    transition: opacity 0.25s ease, border-color $themeTransition;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus,
+  &--active {
+    &::after {
+      opacity: 1;
+    }
+  }
+}

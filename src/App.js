@@ -1,27 +1,22 @@
-import { Scene } from '@Three';
-import '@Scss/main.scss';
+import { useState } from 'react';
+import { Scene } from 'Three';
+import { ContactBar, Title } from 'Components';
+import { THEMES } from 'Constants';
+import 'Scss/main.scss';
 
-const App = () => (
-  <div className="app">
-    <h1 className="title">
-      Building good things well.
-    </h1>
-    <h1 aria-hidden="true" className="title-overlap">
-      Building good things well.
-    </h1>
-    <Scene />
-    <div className="links">
-      <h4 className="links__title">
-        Let's talk
-      </h4>
-      <div className="links__list">
-      <a href="#">resume</a>
-      <a href="#">contact</a>
-      <a href="#">hometown advantage</a>
-      <a href="#">github</a>
-      </div>
+const themeNames = THEMES.map(({ id }) => id);
+
+const App = () => {
+  const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
+  const currentTheme = THEMES[currentThemeIndex];
+
+  return (
+    <div className={`app app--theme-${themeNames[currentThemeIndex]}`}>
+      <Title {...{ currentTheme }} copy="Building good things well." />
+      <Scene {...{ currentTheme }} onThemeChange={setCurrentThemeIndex} />
+      <ContactBar {...{ currentTheme }} />
     </div>
-  </div>
-);
+  );
+};
 
 export default App;

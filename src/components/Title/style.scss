@@ -1,0 +1,43 @@
+@import '~Scss/variables';
+
+.title {
+  $self: &;
+  letter-spacing: 0.0465em;
+  font-size: 12vw;
+  font-family: Anonymous Pro, monospace;
+  position: absolute;
+  top: 0;
+  left: $desktopMargin;
+  font-weight: bold;
+  -webkit-text-stroke-width: 2px;
+  transition: color $themeTransition,
+    -webkit-text-stroke-color $themeTransition;
+  font-weight: 700;
+
+  span {
+    display: inline-block;
+    position: absolute;
+    height: 12vw;
+    width: 2px;
+    transition: background-color $themeTransition;
+  }
+
+  &--typing-complete {
+    span {
+      display: none;
+    }
+  }
+
+  &--typing-near-complete {
+    & + #{$self}--overlap {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &--overlap {
+    color: transparent;
+    z-index: 10;
+    transition: letter-spacing 1s ease,
+      -webkit-text-stroke-color $themeTransition;
+  }
+}
