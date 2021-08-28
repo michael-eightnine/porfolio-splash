@@ -2,7 +2,11 @@ import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFrame } from '@react-three/fiber';
 import { easeElasticOut } from 'd3-ease';
-import { Html, MeshWobbleMaterial, Sphere as SphereBase } from '@react-three/drei';
+import {
+  Html,
+  MeshWobbleMaterial,
+  Sphere as SphereBase
+} from '@react-three/drei';
 import { useSpring, animated } from 'react-spring/three';
 import { THEMES } from 'Constants';
 import { Wordmark } from 'Components';
@@ -26,7 +30,8 @@ const Sphere = ({ currentTheme, onThemeChange }) => {
   useEffect(() => {
     const rotateTheme = () => {
       const currentThemeIndex = themeIndexRef.current;
-      const nextIndex = currentThemeIndex === THEMES.length - 1 ? 0 : currentThemeIndex + 1;
+      const nextIndex =
+        currentThemeIndex === THEMES.length - 1 ? 0 : currentThemeIndex + 1;
       themeIndexRef.current = nextIndex;
       onThemeChange(nextIndex);
     };
@@ -56,7 +61,11 @@ const Sphere = ({ currentTheme, onThemeChange }) => {
             <Wordmark color={currentTheme.logoColor} isSphereWordmark />
           </Html>
           <SphereBase args={[5, 100, 100]}>
-            <AnimatedWobbleMaterial attach="material" {...{ factor, color }} speed={0.25} />
+            <AnimatedWobbleMaterial
+              attach="material"
+              {...{ factor, color }}
+              speed={0.25}
+            />
           </SphereBase>
         </animated.mesh>
       </mesh>

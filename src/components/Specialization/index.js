@@ -11,7 +11,7 @@ const Specialization = () => (
     <ul className="specialization__list">
       <li>Front-End Architecture</li>
       <li>Visual &amp; Interface Design</li>
-      <li>"Making It Happen"</li>
+      <li>{`"Making It Happen"`}</li>
     </ul>
   </div>
 );

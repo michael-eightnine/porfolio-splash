@@ -1,6 +1,7 @@
 {
   "name": "temp-portfolio",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
@@ -44,8 +45,11 @@
     ]
   },
   "lint-staged": {
-    "*.{js,scss}": [
+    "*.{js}": [
       "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{scss}": [
       "prettier --write"
     ]
   }

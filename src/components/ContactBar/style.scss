@@ -113,6 +113,15 @@
     a {
       text-decoration: underline;
       color: currentColor;
+      transition: transform 0.25s ease, padding 0.25s ease;
+
+      &:focus,
+      &:hover {
+        transform: translateY(-5px);
+        text-decoration: white wavy overline;
+        outline: none;
+        padding-bottom: 5px;
+      }
     }
   }
 

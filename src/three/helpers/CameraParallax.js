@@ -1,6 +1,6 @@
-import { useRef, useMemo, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useRef, useMemo, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useThree, useFrame } from '@react-three/fiber';
 
 /**
  * Utility component that adds a parallax effect, where canvas content slowly floats away from the current mouse position,
@@ -34,10 +34,10 @@ const CameraParallax = ({ canvasSelector, mouseMoveFactor }) => {
     };
 
     if (canvasContainer) {
-      canvasContainer.addEventListener("mousemove", onDocumentMouseMove);
+      canvasContainer.addEventListener('mousemove', onDocumentMouseMove);
     }
     return () => {
-      canvasContainer.removeEventListener("mousemove", onDocumentMouseMove);
+      canvasContainer.removeEventListener('mousemove', onDocumentMouseMove);
     };
   }, [canvasContainer, containerHalfX, containerHalfY, mouseMoveFactor]);
 
@@ -50,12 +50,12 @@ const CameraParallax = ({ canvasSelector, mouseMoveFactor }) => {
 };
 
 CameraParallax.defaultProps = {
-  mouseMoveFactor: 0.01,
+  mouseMoveFactor: 0.01
 };
 
 CameraParallax.propTypes = {
   canvasSelector: PropTypes.string.isRequired,
-  mouseMoveFactor: PropTypes.number,
+  mouseMoveFactor: PropTypes.number
 };
 
 export default CameraParallax;

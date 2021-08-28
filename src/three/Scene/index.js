@@ -14,7 +14,10 @@ import { CameraParallax, Lighting } from '../helpers';
  */
 const Scene = () => {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
-  const currentTheme = useMemo(() => THEMES[currentThemeIndex], [currentThemeIndex]);
+  const currentTheme = useMemo(
+    () => THEMES[currentThemeIndex],
+    [currentThemeIndex]
+  );
 
   const isDesktop = useMediaQuery('(min-width: 1025px)');
   const showSpecialization = useMediaQuery('(min-width: 600px)');
@@ -28,7 +31,11 @@ const Scene = () => {
       <Lighting {...{ currentTheme }} />
       <Sphere {...{ currentTheme }} onThemeChange={setCurrentThemeIndex} />
       {showSpecialization && (
-        <Html position={isDesktop ? desktopPosition : tabletPosition} center zIndexRange={[16, 20]}>
+        <Html
+          position={isDesktop ? desktopPosition : tabletPosition}
+          center
+          zIndexRange={[16, 20]}
+        >
           <Specialization />
         </Html>
       )}
