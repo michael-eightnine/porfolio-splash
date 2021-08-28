@@ -1,4 +1,4 @@
-# 2021 Front-End Portfolio
-Simple portfolio site for myself, created after recent threejs client work got me excited about 3D web UI.
+# michael/smith portfolio
+Repo for my simple portfolio site, changes semi-frequently as a way to explore any UI concepts that come to mind.
 
 See it here: http://eightnine.co/smith
