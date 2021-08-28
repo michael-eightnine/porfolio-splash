@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import closeIconSrc from 'Assets/close-icon.svg';
 
 /**
  * Re-usable button and link component for use in the ContactBar link list
@@ -55,6 +56,13 @@ const ContactButton = ({
       {...{ onClick, ...rest }}
     >
       {children}
+      <span
+        className={classnames('contact-button__close-icon', {
+          'contact-button__close-icon--visible': isActive
+        })}
+      >
+        <img src={closeIconSrc} />
+      </span>
     </div>
   );
 };

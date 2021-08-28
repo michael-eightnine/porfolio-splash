@@ -20,6 +20,12 @@ const useAccordion = (accordionContent, expandableContainer) => {
     if (!expandableContainer) return;
 
     expandableContainer.style.height = `${newHeight}px`;
+
+    // Ensure child content can still scroll if needed in flex layouts
+    // 100ms timeout helps this flow better with the expand/collapse transition
+    setTimeout(() => {
+      accordionContent.style.maxHeight = expanded ? '100%' : 'none';
+    }, 100);
   }, [expanded, accordionContent, expandableContainer]);
 
   return {
