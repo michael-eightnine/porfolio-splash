@@ -19,11 +19,11 @@ const Scene = () => {
     [currentThemeIndex]
   );
 
-  const isDesktop = useMediaQuery('(min-width: 1025px)');
+  const isDesktop = useMediaQuery('(min-width: 1023px)');
   const showSpecialization = useMediaQuery('(min-width: 600px)');
 
-  const desktopPosition = [3, -1, -1];
-  const tabletPosition = [1.75, -2.5, -1];
+  const desktopPosition = [4, -1.5, -1];
+  const tabletPosition = [1, -2, -1];
 
   return (
     <Canvas className="scene-container">
