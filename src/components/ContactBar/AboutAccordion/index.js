@@ -19,7 +19,7 @@ const AboutAccordion = forwardRef((props, ref) => {
           </p>
           <p className="about__paragraph">
             {`That's the "professional third person" elevator pitch. On a more
-              casual note, I believe in exactly what the header of this site
+              casual note, I believe in exactly what the intro of this site
               says. I am fully invested in delivering the best work possible,
               and helping to elevate teams, brands, and agencies to that same
               standard. Experimental design and experiences really speak to me,

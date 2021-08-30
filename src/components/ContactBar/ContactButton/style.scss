@@ -7,13 +7,14 @@
   text-decoration: none;
   font-family: $fontSerif;
   text-transform: capitalize;
-  font-size: 18px;
+  font-size: 16px;
   display: block;
   position: relative;
   cursor: pointer;
   color: $colorLight;
   transition: height 0.35s ease, opacity 0.35s ease;
   height: 18px;
+  line-height: 18px;
 
   &::after {
     content: '';
