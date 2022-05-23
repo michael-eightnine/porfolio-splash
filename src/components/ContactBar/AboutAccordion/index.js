@@ -12,10 +12,10 @@ const AboutAccordion = forwardRef((props, ref) => {
             {`While titled as a front-end architect, Michael Smith strives to
               bridge the gap between design and development by pairing years of
               front-end development experience with over a decade of visual
-              design expertise. He's primarily focused on React development,
+              design expertise. He's primarily focused on React & Svelte development,
               having concepted and built applications, experiences, and sites
               for global brands like Enterprise Rent-A-Car and Nationwide as
-              well as smaller, niche brands like Monit and Liberty Fund.`}
+              well as smaller, niche brands like Monit, Liberty Fund and Agot AI.`}
           </p>
           <p className="about__paragraph">
             {`That's the "professional third person" elevator pitch. On a more
@@ -24,7 +24,7 @@ const AboutAccordion = forwardRef((props, ref) => {
               and helping to elevate teams, brands, and agencies to that same
               standard. Experimental design and experiences really speak to me,
               but any project where I can dive into detailed design and
-              development gives me that "good days work" feeling.`}
+              development gives me that good day's work feeling.`}
           </p>
         </div>
         <div className="about__non-scroller">
